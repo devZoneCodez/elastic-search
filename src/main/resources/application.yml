@@ -4,3 +4,10 @@ server:
 spring:
   application:
     name: elastic-search
+
+  data:
+    elasticsearch:
+      cluster-name: elasticsearch
+      cluster-nodes: localhost:9300
+      repositories:
+        enabled: true
