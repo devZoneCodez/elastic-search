@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -20,6 +21,12 @@ public class UserServiceImpl implements UserService {
         Iterable<User> iterableUsers = userRepository.findAll();
         iterableUsers.forEach(users::add);
         return users;
+    }
+
+    @Override
+    public User findById(Long id) {
+        Optional<User> user = userRepository.findById(id);
+        return user.get();
     }
 
     @Override
@@ -40,6 +47,12 @@ public class UserServiceImpl implements UserService {
     @Override
     public User save(User user) {
         userRepository.save(user);
+        return user;
+    }
+
+    @Override
+    public User delete(User user) {
+        userRepository.delete(user);
         return user;
     }
 }

@@ -1,10 +1,31 @@
+###
+# Server configurations
+###
 server:
   port: 8080
 
+###
+# Logging configurations
+###
+logging:
+  level:
+    root: info
+    org.springframework: info
+    com.example.es: trace
+
+###
+# Spring configurations
+###
 spring:
+  ###
+  # Application name
+  ###
   application:
     name: elastic-search
 
+  ###
+  # ElasticSearch - Configurations
+  ###
   data:
     elasticsearch:
       cluster-name: elasticsearch
