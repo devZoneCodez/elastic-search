@@ -8,7 +8,7 @@ import java.util.List;
 
 @Repository
 public interface UserRepository extends ElasticsearchRepository<User,Long> {
-    public List<User> findByFirstName();
-    public List<User> findByLastName();
-    public List<User> findByPhone();
+    public List<User> findByFirstName(String firstName);
+    public List<User> findByLastName(String lastName);
+    public List<User> findByPhone(Long phone);
 }

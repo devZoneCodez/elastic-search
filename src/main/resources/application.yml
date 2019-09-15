@@ -11,3 +11,8 @@ spring:
       cluster-nodes: localhost:9300
       repositories:
         enabled: true
+
+#elasticsearch:
+#  clustername: elasticsearch
+#  host: localhost
+#  port: 9300

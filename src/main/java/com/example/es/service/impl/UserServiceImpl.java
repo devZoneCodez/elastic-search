@@ -23,17 +23,23 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> findByFirstName() {
-        return userRepository.findByFirstName();
+    public List<User> findByFirstName(String firstName) {
+        return userRepository.findByFirstName(firstName);
     }
 
     @Override
-    public List<User> findByLastName() {
-        return userRepository.findByLastName();
+    public List<User> findByLastName(String lastName) {
+        return userRepository.findByLastName(lastName);
     }
 
     @Override
-    public List<User> findByPhone() {
-        return userRepository.findByPhone();
+    public List<User> findByPhone(Long phone) {
+        return userRepository.findByPhone(phone);
+    }
+
+    @Override
+    public User save(User user) {
+        userRepository.save(user);
+        return user;
     }
 }
