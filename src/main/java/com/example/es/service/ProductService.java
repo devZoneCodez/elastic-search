@@ -10,5 +10,6 @@ public interface ProductService {
     public List<ProductDto> findByProductName(String productName);
     public ProductDto save(ProductDto productDto);
     public List<ProductDto> saveAll(List<ProductDto> products);
+    public Boolean isExists(String productId);
     public ProductDto delete(ProductDto productDto);
 }

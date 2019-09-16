@@ -68,6 +68,11 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    public Boolean isExists(String productId) {
+        return productRepository.existsById(productId);
+    }
+
+    @Override
     public ProductDto delete(ProductDto productDto) {
         productRepository.delete(converter.convertToEntity(productDto));
         return productDto;
