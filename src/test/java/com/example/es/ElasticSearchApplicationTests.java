@@ -17,16 +17,16 @@ public class ElasticSearchApplicationTests {
 	@Autowired
 	private UserService userService;
 
-	@Autowired
-	private ElasticsearchTemplate elasticsearchTemplate;
+//	@Autowired
+//	private ElasticsearchTemplate elasticsearchTemplate;
 
-	@Before
-	public void before() {
-		elasticsearchTemplate.deleteIndex(User.class);
-		elasticsearchTemplate.createIndex(User.class);
-		elasticsearchTemplate.putMapping(User.class);
-		elasticsearchTemplate.refresh(User.class);
-	}
+//	@Before
+//	public void before() {
+//		elasticsearchTemplate.deleteIndex(User.class);
+//		elasticsearchTemplate.createIndex(User.class);
+//		elasticsearchTemplate.putMapping(User.class);
+//		elasticsearchTemplate.refresh(User.class);
+//	}
 
 	@Test
 	public void contextLoads() {
