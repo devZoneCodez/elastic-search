@@ -69,4 +69,10 @@ public class ProductController {
         return deletedProductDto;
     }
 
+    @GetMapping(path = "findAll/{productName}"
+            , produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<ProductDto> findAll(@PathVariable(name = "productName") String productName) {
+        return productService.findByProductName(productName);
+    }
+
 }
