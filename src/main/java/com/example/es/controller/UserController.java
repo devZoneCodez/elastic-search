@@ -28,8 +28,8 @@ public class UserController {
     public UserDto addUser(@RequestBody UserDto userDto) {
         User user = converter.convertToEntity(userDto);
         user.setFirstName("Name has been edited in the controller");
-        UserDto tempDtp = converter.convertToDto(user);
-        return tempDtp;
+        UserDto tempDto = converter.convertToDto(user);
+        return tempDto;
     }
 
 }
