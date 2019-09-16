@@ -23,7 +23,7 @@ public class ProductController {
 
     @GetMapping(path = "find/{productId}"
             , produces = MediaType.APPLICATION_JSON_VALUE)
-    public ProductDto find(@PathVariable(name = "productId") Long productId) {
+    public ProductDto find(@PathVariable(name = "productId") String productId) {
         return productService.findById(productId);
     }
 
@@ -50,7 +50,7 @@ public class ProductController {
             , consumes = MediaType.APPLICATION_JSON_VALUE
             , produces = MediaType.APPLICATION_JSON_VALUE)
     public ProductDto updateProduct(@RequestBody ProductDto productDto
-            , @PathVariable(name = "productId") Long productId) {
+            , @PathVariable(name = "productId") String productId) {
         ProductDto p = productService.findById(productId);
         ProductDto savedProductDto = null;
         if (p != null) {
@@ -60,7 +60,7 @@ public class ProductController {
     }
 
     @DeleteMapping("delete/{productId}")
-    public ProductDto deleteProduct(@PathVariable(name = "productId") Long productId) {
+    public ProductDto deleteProduct(@PathVariable(name = "productId") String productId) {
         ProductDto p = productService.findById(productId);
         ProductDto deletedProductDto = null;
         if (p != null) {

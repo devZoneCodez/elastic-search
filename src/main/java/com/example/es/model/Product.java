@@ -12,7 +12,7 @@ import org.springframework.data.elasticsearch.annotations.Document;
 @AllArgsConstructor
 public class Product {
     @Id
-    private Long productId;
+    private String productId;
     private String productName;
     private String productDesc;
 }

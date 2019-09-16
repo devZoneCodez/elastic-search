@@ -32,7 +32,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public ProductDto findById(Long productId) {
+    public ProductDto findById(String productId) {
         Optional<Product> product = productRepository.findById(productId);
         return converter.convertToDto(product.get());
     }

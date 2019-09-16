@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 public class ProductDto {
-    private Long productId;
+    private String productId;
     private String productName;
     private String productDesc;
 }
