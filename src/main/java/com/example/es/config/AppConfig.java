@@ -10,7 +10,12 @@ import org.springframework.context.annotation.Import;
 public class AppConfig {
 
     @Bean
-    public ModelMapper modelMapper() {
+    public ModelMapper userModelMapper() {
+        return new ModelMapper();
+    }
+
+    @Bean
+    public ModelMapper productModelMapper() {
         return new ModelMapper();
     }
 

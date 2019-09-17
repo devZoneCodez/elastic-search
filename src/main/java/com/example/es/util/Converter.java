@@ -12,25 +12,28 @@ import org.springframework.stereotype.Component;
 public class Converter {
 
     @Autowired
-    private ModelMapper modelMapper;
+    private ModelMapper userModelMapper;
+
+    @Autowired
+    private ModelMapper productModelMapper;
 
     public User convertToEntity(UserDto userDto) {
-        User user = modelMapper.map(userDto, User.class);
+        User user = userModelMapper.map(userDto, User.class);
         return user;
     }
 
     public UserDto convertToDto(User userEntity) {
-        UserDto userDto = modelMapper.map(userEntity, UserDto.class);
+        UserDto userDto = userModelMapper.map(userEntity, UserDto.class);
         return userDto;
     }
 
     public Product convertToEntity(ProductDto productDto) {
-        Product product = modelMapper.map(productDto, Product.class);
+        Product product = productModelMapper.map(productDto, Product.class);
         return product;
     }
 
     public ProductDto convertToDto(Product productEntity) {
-        ProductDto productDto = modelMapper.map(productEntity, ProductDto.class);
+        ProductDto productDto = productModelMapper.map(productEntity, ProductDto.class);
         return productDto;
     }
 }
