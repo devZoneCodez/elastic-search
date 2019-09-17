@@ -6,16 +6,21 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
 @Configuration
-@Import(ElasticSearchConfig.class)
+@Import({
+        AppMessage.class
+        , ElasticSearchConfig.class
+})
 public class AppConfig {
 
     @Bean
     public ModelMapper userModelMapper() {
+
         return new ModelMapper();
     }
 
     @Bean
     public ModelMapper productModelMapper() {
+
         return new ModelMapper();
     }
 

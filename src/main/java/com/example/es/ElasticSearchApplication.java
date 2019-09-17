@@ -10,21 +10,25 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Import;
 import org.springframework.data.elasticsearch.core.ElasticsearchTemplate;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
 @Import(AppConfig.class)
 @EnableSwagger2
 @ComponentScan(basePackages = {"com.example.es.controller"
-        , "com.example.es.repo", "com.example.es.service"
-        ,"com.example.es.util"})
+        , "com.example.es.repo"
+        , "com.example.es.service"
+        , "com.example.es.util"
+        , "com.example.es.exception"})
+@EnableWebMvc
 @Slf4j
 public class ElasticSearchApplication implements CommandLineRunner {
 
-	@Autowired
-	private UserService userService;
+    @Autowired
+    private UserService userService;
 
-	@Autowired
+    @Autowired
     private ElasticsearchTemplate esTemplate;
 
     public static void main(String[] args) {
@@ -35,7 +39,7 @@ public class ElasticSearchApplication implements CommandLineRunner {
     public void run(String... args) throws Exception {
         log.trace("ElasticSearchApplication.rub - Start");
 
-        log.info("ElasticsearchTemplate =" + esTemplate );
+        log.info("ElasticsearchTemplate =" + esTemplate);
 //
 //        List<User> users = Arrays.asList(new User(1001L, "Sateesh Kumar", "D", 123456789L)
 //                , new User(1001L, "Sateesh Kumar", "D", 123456789L)

@@ -33,8 +33,6 @@ public class ProductController {
     )
     public ProductDto addProduct(@RequestBody ProductDto productDto) {
         return productService.save(productDto);
-        //productDto.setProductDesc("Description has been edited!!!");
-        //return productDto;
     }
 
     @PostMapping(path = "addAll"
@@ -43,7 +41,6 @@ public class ProductController {
     )
     public List<ProductDto> addProducts(@RequestBody List<ProductDto> products) {
         return productService.saveAll(products);
-        //return products;
     }
 
     @PutMapping(path = "update/{productId}"
