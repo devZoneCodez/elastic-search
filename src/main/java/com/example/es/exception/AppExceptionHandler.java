@@ -7,10 +7,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import java.io.PrintWriter;
-import java.io.StringWriter;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 @ControllerAdvice
 public class AppExceptionHandler extends ResponseEntityExceptionHandler {
@@ -18,21 +16,20 @@ public class AppExceptionHandler extends ResponseEntityExceptionHandler {
     private final String INCORRECT_REQUEST = "INCORRECT_REQUEST";
 
     @ExceptionHandler(RecordNotFoundException.class)
-    public final ResponseEntity<ErrorDetails> handleRecordNotFoundException
+    public final ResponseEntity<AppErrorResponse> handleRecordNotFoundException
             (RecordNotFoundException ex, WebRequest request) {
 
-        List<String> details = new ArrayList<>();
-        details.add(ex.getLocalizedMessage());
-        details.add(getPrintStackTrace(ex));
-        ErrorDetails errorDetails = new ErrorDetails(INCORRECT_REQUEST, details);
-        return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
+        Map<String, Object> moreDetails = new HashMap<>();
+        moreDetails.put("path", request.getDescription(false));
+
+        AppErrorResponse errorResponse = constructErrorResponse(HttpStatus.NOT_FOUND
+                , ex, moreDetails);
+        return new ResponseEntity<>(errorResponse, HttpStatus.NOT_FOUND);
     }
 
-    private String getPrintStackTrace(RuntimeException e) {
-        StringWriter sw = new StringWriter();
-        PrintWriter pw = new PrintWriter(sw);
-        e.printStackTrace(pw);
-        return sw.toString();
+    private AppErrorResponse constructErrorResponse(HttpStatus httpStatus
+            , Exception exception
+            , Map<String, Object> errorDetails) {
+        return new AppErrorResponse(httpStatus, exception, errorDetails);
     }
-
 }
