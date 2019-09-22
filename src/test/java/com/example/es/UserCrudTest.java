@@ -27,6 +27,7 @@ public class UserCrudTest {
     @Autowired
     private UserService userService;
 
+    @Ignore
     @Test
     public void contextLoads() {
         elasticsearchTemplate.deleteIndex(User.class);
@@ -35,6 +36,7 @@ public class UserCrudTest {
         elasticsearchTemplate.refresh(User.class);
     }
 
+    @Ignore
     @Test
     public void testSave() {
         List<User> users = Arrays.asList(new User(1001L, "Sateesh Kumar", "D", 1234567890L)
@@ -54,6 +56,7 @@ public class UserCrudTest {
         assertEquals(source.getPhone(), target.getPhone());
     }
 
+    @Ignore
     @Test
     public void testFindById() {
         User target = userService.findById(1001L);

@@ -10,6 +10,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.elasticsearch.core.ElasticsearchTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import static org.junit.Assert.assertEquals;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = {ElasticSearchApplication.class})
 @Slf4j
@@ -29,7 +31,11 @@ public class ProductCrudTest {
         elasticsearchTemplate.refresh(Product.class);*/
     }
 
+    @Test
+    public void testSimple() {
 
+        assertEquals("simple","simple");
+    }
 
     /*Life cycle methods goes here*/
     @BeforeClass
