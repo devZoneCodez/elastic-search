@@ -4,11 +4,8 @@ import com.example.es.model.User;
 import com.example.es.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.*;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.elasticsearch.core.ElasticsearchTemplate;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Arrays;
 import java.util.List;
@@ -16,10 +13,8 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest(classes = {ElasticSearchApplication.class})
 @Slf4j
-public class UserCrudTest {
+public class UserCrudTest extends ElasticSearchApplicationTests {
 
     @Autowired
     private ElasticsearchTemplate elasticsearchTemplate;
@@ -27,13 +22,10 @@ public class UserCrudTest {
     @Autowired
     private UserService userService;
 
-    @Ignore
     @Test
-    public void contextLoads() {
-        elasticsearchTemplate.deleteIndex(User.class);
-        elasticsearchTemplate.createIndex(User.class);
-        elasticsearchTemplate.putMapping(User.class);
-        elasticsearchTemplate.refresh(User.class);
+    public void testSimpleTest() {
+
+        assertEquals("simple","simple");
     }
 
     @Ignore

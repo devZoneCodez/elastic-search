@@ -1,15 +1,17 @@
 package com.example.es;
 
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
-//@SpringBootTest(classes = {ElasticSearchApplication.class})
-@RunWith(Suite.class)
-@Suite.SuiteClasses(value = {
-//        ProductCrudTest.class
-//        , UserCrudTest.class
-})
-public class ElasticSearchApplicationTests {
+@RunWith(SpringRunner.class)
+@SpringBootTest
+public abstract class ElasticSearchApplicationTests {
+
+    @Test
+    public void contextLoads() {
+    }
 
 }
